@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border: 2px solid black;
+            height: 400px;
+        }
+        #container button{
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div Id="container">
+        <h1>Change Background Color</h1>
+        <input type="text" id="Color-name" placeholder="Enter a color">
+        <button id="btn">Apply Color</button>
+    </div>
+    <script>
+        document.getElementById('btn').addEventListener('click', function(){
+            const color = document.getElementById('Color-name').value;
+            document.getElementById('container').style.backgroundColor = color; 
+        })
+    </script>
+</body>
+</html>
