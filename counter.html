@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        .counter{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .counter button{
+            height: 50px;
+            width: 50px;
+        }
+        .counter span{
+            margin: 0 10px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="counter">
+        <button class="decrease-btn">-</button>
+        <span class="quantity">0</span>
+        <button class="increase-btn">+</button>
+    </div>
+    <script>
+        let increaseBtn = document.querySelector('.increase-btn');
+        let decreaseBtn = document.querySelector('.decrease-btn');
+        let quantityDisplay = document.querySelector('.quantity');
+        let quantity = 0;
+        increaseBtn.addEventListener('click', () => {
+            quantity++;
+            quantityDisplay.textContent = quantity;
+        });
+        decreaseBtn.addEventListener('click', () => {
+            if(quantity > 0){
+                quantity--;
+            }
+            quantityDisplay.textContent = quantity;
+        });
+    </script>
+</body>
+</html>
