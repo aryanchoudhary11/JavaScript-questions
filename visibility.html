@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visibility</title>
+</head>
+<body>
+    <div id="container">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, iure!</p>
+    </div>
+    <button id="btn">Hide Paragraph</button>
+    <script>
+        let paraDiv = document.querySelector('#container');
+        let btn = document.querySelector('#btn');
+
+        btn.addEventListener('click', () => {
+            if(paraDiv.style.display === 'none'){
+                paraDiv.style.display = 'block';
+                btn.textContent = 'Hide Paragraph';
+            } else {
+                paraDiv.style.display = 'none';
+                btn.textContent = 'Show Paragraph';
+            }
+        })
+    </script>
+</body>
+</html>
