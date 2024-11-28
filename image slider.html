@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        #container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        #container img{
+            height: 200px;
+            width: 300px;
+
+        }
+        #container button{
+            font-size: 50px;
+            background: none;
+            border: none;
+            opacity: 0.5;
+            padding: 10px;
+            cursor: pointer;
+        }
+        #container button:hover{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <button id="prevBtn"><</button>
+        <img id="img" src="img/1.jpg">
+        <button id="nextBtn">></button>
+    </div>
+    <script>
+        const images = [
+            "img/1.jpg",
+            "img/2.jpg",
+            "img/3.jpg",
+            "img/4.png"
+        ];
+        let currentIndex = 0;
+        const image = document.querySelector('#img');
+        const prev = document.querySelector('#prevBtn');
+        const next = document.querySelector('#nextBtn');
+
+        function updateImage(){
+            image.src = images[currentIndex];
+        }
+        prev.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateImage();
+        });
+        next.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1 + images.length) % images.length;
+            updateImage();
+        });
+    </script>
+</body>
+</html>
