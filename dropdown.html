@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .dropdown-container {
+            margin-bottom: 20px;
+        }
+        #selected-option {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Choose a Fruit</h1>
+
+    <div class="dropdown-container">
+        <label for="fruits">Select a fruit: </label>
+        <select id="fruits">
+            <option value="" disabled selected>Select an option</option>
+            <option value="Apple">Apple</option>
+            <option value="Banana">Banana</option>
+            <option value="Orange">Orange</option>
+        </select>
+    </div>
+    <p>Selected Fruit: <span id="selected-option">None</span></p>
+
+    <script>
+        const dropdown = document.getElementById("fruits");
+        const selectedOption = document.getElementById("selected-option");
+        dropdown.addEventListener("change", function () {
+            const fruit = dropdown.value;
+            selectedOption.textContent = fruit;
+        });
+    </script>
+</body>
+</html>
