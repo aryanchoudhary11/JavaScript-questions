@@ -109,5 +109,13 @@
       )} ${toUnit}`;
       resultDiv.style.color = "green";
     });
+
+    document.getElementById("reset-btn").addEventListener("click", () => {
+      document.getElementById("text-field").value = "";
+
+      document.getElementById("fromUnit").value = "celsius";
+      document.getElementById("toUnit").value = "celsius";
+      document.getElementById("result").textContent = "";
+    });
   </script>
 </html>
