@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Character Counter</title>
+    <style>
+      #charCounter {
+        color: green;
+      }
+      #charCounter.exceed {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h1>Real Time Character Counter</h1>
+      <textarea
+        id="counter"
+        rows="4"
+        cols="50"
+        placeholder="Type Something...."
+      ></textarea>
+      <p id="charCounter">0</p>
+    </center>
+  </body>
+  <script>
+    const textArea = document.getElementById("counter");
+    const charCounter = document.getElementById("charCounter");
+    const maxChar = 100;
+
+    textArea.addEventListener("input", () => {
+      const charCount = textArea.value.length;
+      charCounter.textContent = `${charCount}/${maxChar} Characters`;
+      if (charCount > maxChar) {
+        charCounter.classList.add("exceed");
+      } else {
+        charCounter.classList.remove("exceed");
+      }
+      if (charCount > maxChar) {
+        charCounter.textContent = "100/100 Characters";
+        textArea.value = textArea.value.substring(0, maxChar);
+      }
+    });
+  </script>
+</html>
