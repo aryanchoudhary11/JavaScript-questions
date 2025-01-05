@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Paragraph</title>
+    <style>
+      #para {
+        font-size: 20px;
+      }
+      #btn {
+        border: none;
+        background-color: rgb(140, 220, 19);
+        border-radius: 10px;
+        width: 100px;
+        height: 30px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      #btn:hover {
+        background-color: greenyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <p id="para">Click below button!</p>
+      <button id="btn">Click me</button>
+    </center>
+    <script>
+      const paragraph = document.getElementById("para");
+      const button = document.getElementById("btn");
+      button.addEventListener("click", () => {
+        paragraph.textContent = "Hello buddy!";
+      });
+    </script>
+  </body>
+</html>
