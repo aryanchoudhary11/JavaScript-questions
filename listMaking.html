@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List</title>
+    <style>
+      #box {
+        margin-top: 10px;
+        font-size: 20px;
+      }
+      #dlt,
+      #btn {
+        background-color: rgb(199, 0, 0);
+        border: none;
+        border-radius: 10px;
+        height: 34px;
+        width: 80px;
+        color: white;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+      #dlt:hover {
+        background-color: rgb(254, 0, 0);
+      }
+      #btn {
+        background-color: rgb(3, 161, 3);
+      }
+      #btn:hover {
+        background-color: rgb(4, 201, 4);
+      }
+      #list li {
+        list-style: upper-roman;
+        font-size: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" placeholder="Enter item here" id="box" />
+    <button id="btn">ADD</button>
+    <button id="dlt">Delete</button>
+    <ul id="list"></ul>
+  </body>
+  <script>
+    let itemsList = [];
+
+    function renderList() {
+      const items = document.getElementById("list");
+      items.innerText = "";
+      itemsList.forEach((item) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = item;
+        items.appendChild(listItem);
+      });
+    }
+    const button = document.getElementById("btn");
+
+    button.addEventListener("click", () => {
+      const input = document.getElementById("box");
+      const newItem = input.value.trim();
+
+      if (newItem !== "") {
+        itemsList.push(newItem);
+        renderList();
+        input.value = "";
+      }
+    });
+
+    const dlt = document.getElementById("dlt");
+    dlt.addEventListener("click", () => {
+      if (itemsList.length > 0) {
+        itemsList.pop();
+        renderList();
+      }
+    });
+  </script>
+</html>
