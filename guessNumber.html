@@ -1,36 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess Number</title>
-    <style>
-        #input{
-            font-size: 20px;
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Guess Number</title>
+        <style>
+            #input{
+                font-size: 20px;
+            }
+            #btn {
+            background-color: rgb(3, 161, 3);
+            border: none;
+            border-radius: 10px;
+            height: 34px;
+            width: 80px;
+            color: white;
+            cursor: pointer;
+            margin-left: 10px;
         }
-        #btn {
-        background-color: rgb(3, 161, 3);
-        border: none;
-        border-radius: 10px;
-        height: 34px;
-        width: 80px;
-        color: white;
-        cursor: pointer;
-        margin-left: 10px;
-      }
-      #btn:hover {
-        background-color: rgb(8, 210, 8);
-      }
-    </style>
-</head>
-<body>
-    <center>
-        <h1>Guess the number</h1>
-        <input type="text" placeholder="Enter a number" id="input">
-        <button id="btn">Submit</button>
-        <h3 id="random"></h3>
-        <h2 id="result"></h3>
-    </center>
-
-</body>
+        #btn:hover {
+            background-color: rgb(8, 210, 8);
+        }
+        </style>
+    </head>
+    <body>
+        <center>
+            <h1>Guess the number</h1>
+            <input type="text" placeholder="Enter a number" id="input">
+            <button id="btn">Submit</button>
+            <h3 id="random"></h3>
+            <h2 id="result"></h3>
+        </center>
+    </body>
+    <script>
+        const randomDisplay = document.getElementById("random");
+        const resultDisplay = document.getElementById("result");
+        const inputValue = document.getElementById("input");
+        const submit = document.getElementById("btn");
+        btn.addEventListener("click", () => {
+            const randomNumber = Math.floor(Math.random() * 100);
+            randomDisplay.textContent = randomNumber;
+            if(inputValue.value === randomNumber){
+                resultDisplay.textContent = "Your guess is correct!";
+            } else if(Math.abs(inputValue.value - randomNumber) < 10){
+                resultDisplay.textContent = "Too close!";
+            } else {
+                resultDisplay.textContent = "Sorry its too far!";
+            }
+        })
+    </script>
 </html>
