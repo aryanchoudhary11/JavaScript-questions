@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mode Toggle</title>
+    <style>
+      #btn {
+        background-color: green;
+        color: white;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        height: 28px;
+        width: 100px;
+      }
+      #btn:hover {
+        background-color: rgb(6, 174, 6);
+      }
+      body {
+        transition: background-color 0.3s, color 0.3s;
+      }
+      body.dark-mode {
+        background-color: black;
+        color: white;
+      }
+      body.light-mode {
+        background-color: white;
+        color: black;
+      }
+    </style>
+  </head>
+  <body class="light-mode">
+    <center>
+      <h1>Dark/Light mode toggle</h1>
+      <p id="mode-info">Current mode: Light mode</p>
+      <button id="btn">Toggle Mode</button>
+    </center>
+  </body>
+  <script>
+    const button = document.getElementById("btn");
+    const text = document.getElementById("mode-info");
+    const body = document.body;
+
+    button.addEventListener("click", () => {
+      if (body.classList.contains("light-mode")) {
+        body.classList.remove("light-mode");
+        body.classList.add("dark-mode");
+        text.textContent = "Current mode: Dark mode";
+      } else {
+        body.classList.remove("dark-mode");
+        body.classList.add("light-mode");
+        text.textContent = "Current mode: Light mode";
+      }
+    });
+  </script>
+</html>
