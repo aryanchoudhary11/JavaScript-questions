@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz</title>
     <style>
+      #questions-container {
+        margin: 20px 0;
+      }
+      .options {
+        list-style: none;
+        padding: 0;
+      }
+      .options li {
+        margin: 10px 0;
+      }
       .hidden {
         display: none;
       }
@@ -15,6 +25,12 @@
         margin: 20px 0;
         position: relative;
       }
+      .progress {
+        height: 100%;
+        background: #4caf50;
+        width: 0;
+        transition: width 0.3s;
+      }
     </style>
   </head>
   <body>
@@ -24,7 +40,7 @@
     </div>
     <div id="questions-container">
       <h2 id="question"></h2>
-      <ul class="options"></ul>
+      <ul class="options" id="options"></ul>
     </div>
     <button id="nextBtn">Next</button>
     <div id="result" class="hidden">
@@ -32,4 +48,5 @@
       <button id="restartBtn">Restart</button>
     </div>
   </body>
+  <script src="quiz.js"></script>
 </html>
