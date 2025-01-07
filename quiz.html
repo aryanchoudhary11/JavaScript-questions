@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+      .progress-bar {
+        width: 100%;
+        height: 20px;
+        background: #ddd;
+        margin: 20px 0;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Multiple choice questions</h1>
+    <div class="progress-bar">
+      <div class="progress"></div>
+    </div>
+    <div id="questions-container">
+      <h2 id="question"></h2>
+      <ul class="options"></ul>
+    </div>
+    <button id="nextBtn">Next</button>
+    <div id="result" class="hidden">
+      <h2>Your Score: <span id="score"></span></h2>
+      <button id="restartBtn">Restart</button>
+    </div>
+  </body>
+</html>
