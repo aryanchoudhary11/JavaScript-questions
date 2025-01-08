@@ -35,4 +35,25 @@
       <li>Watermelon</li>
     </ul>
   </body>
+  <script>
+    const filterInput = document.getElementById("input");
+    const noResult = document.getElementById("noResult");
+    const itemsList = document.getElementById("itemList");
+
+    filterInput.addEventListener("input", () => {
+      const inputText = filterInput.value.toLowerCase();
+      const items = document.getElementsByTagName("li");
+      let hasMatch = false;
+      Array.from(items).forEach((item) => {
+        const itemText = item.innerText.toLowerCase();
+        if (itemText.includes(inputText)) {
+          item.style.display = "";
+          hasMatch = true;
+        } else {
+          item.style.display = "none";
+        }
+      });
+      noResult.style.display = hasMatch ? "none" : "block";
+    });
+  </script>
 </html>
