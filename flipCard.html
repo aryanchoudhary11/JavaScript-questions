@@ -24,4 +24,15 @@
     </div>
     <button class="btn">Flip Card</button>
   </body>
+  <script>
+    const flipCard = document.querySelector(".card");
+    const btn = document.querySelector(".btn");
+
+    btn.addEventListener("click", () => {
+      flipCard.style.transform =
+        flipCard.style.transform === "rotateY(180deg)"
+          ? "rotateY(0deg)"
+          : "rotateY(180deg)";
+    });
+  </script>
 </html>
