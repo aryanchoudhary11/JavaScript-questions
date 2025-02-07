@@ -29,26 +29,34 @@ function validateGuess(guess) {
 
 function checkCount(remainingChances, guess) {
   if (guess === randomNumber) {
-    resultDiv.innerHTML = `Congratulations! You guesses it right`;
-    resetGame();
+    resultDiv.innerHTML = ""; // Clear only before setting new content
+    const congratsMsg = document.createElement("h1");
+    congratsMsg.textContent = "Congratulations! You guessed it right 🎉";
+    resultDiv.appendChild(congratsMsg);
+    endgame();
   } else if (remainingChances > 0) {
-    if (guess > randomNumber) {
-      resultDiv.innerHTML = "<h2>Higher than actual number</h2>";
-    } else {
-      resultDiv.innerHTML = "<h2>Lower than actual number</h2>";
-    }
+    resultDiv.innerHTML = ""; // Clear previous message
+    const hintMsg = document.createElement("h2");
+    hintMsg.textContent =
+      guess > randomNumber
+        ? "Higher than actual number"
+        : "Lower than actual number";
+    resultDiv.appendChild(hintMsg);
   } else {
+    resultDiv.innerHTML = ""; // Clear previous message
+    const gameOverMsg = document.createElement("h2");
+    gameOverMsg.textContent = `Game Over! The correct number was ${randomNumber}`;
+    resultDiv.appendChild(gameOverMsg);
     endgame();
   }
 }
 
 function endgame() {
-  resultDiv.innerHTML = `<h2>Game Over! Correct number is ${randomNumber}`;
   input.value = "";
   input.setAttribute("disabled", "");
   submit.style.display = "none";
-  const newBtn = document.createElement("button");
   newBtn.textContent = "Play Again";
+  newBtn.style.display = "block";
   resultDiv.appendChild(newBtn);
   newBtn.addEventListener("click", resetGame);
 }
@@ -56,6 +64,8 @@ function endgame() {
 function resetGame() {
   remainingChances = 10;
   prev.innerHTML = "";
+  resultDiv.innerHTML = "";
+  newBtn.style.display = "none";
   remainingNum.innerHTML = `${remainingChances}`;
   input.removeAttribute("disabled");
   submit.style.display = "inline";
